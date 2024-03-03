@@ -29,3 +29,19 @@ exports.getRestaurantByLocationId = (req, res) => {
             res.status(500).json({ error: err })
         })
 }
+
+exports.getRestaurantById = (req, res) => {
+
+    const { id } = req.params;
+    
+    Restaurant.findById(id)
+        .then(response => {
+            res.status(200).json({
+                message: "Restaurant By Id Fetched Successfully",
+                restaurants: response
+            })
+        })
+        .catch(err => {
+            res.status(500).json({ error: err })
+        })
+}
