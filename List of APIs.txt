@@ -25,6 +25,7 @@ Restaurant Details Page:
     -> post orderDetails
 
     -> post PaymentGateway (RazorPay)
+    -> post Social Media Authentication (Google/ Facebook/ GIT)
 
     -> orderByUser
     -> orderDetailsByResatuarntId

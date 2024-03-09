@@ -8,13 +8,16 @@ const menuController = require("../Controller/menu");
 
 const route = express.Router();
 
-route.get('/location', locationController.getLocation);
-route.get('/restaurant', restaurantController.getRestaurant);
-route.get('/rest/:locId', restaurantController.getRestaurantByLocationId);
-route.get('/restaurants/:id', restaurantController.getRestaurantById);
-route.get('/mealtype', mealtypeController.getMealtype);
-route.post('/sighnup', userController.postSignUp);
-route.post('/login', userController.postlogin);
-route.get('/menu/:resId', menuController.getMenuByRestaurantId);
+route.get('/location', locationController.getLocation);                     // Homepage - Get Location API
+route.get('/rest/:locId', restaurantController.getRestaurantByLocationId);  // Homepage - Get Restaurant By Location API
+route.get('/restaurants/:id', restaurantController.getRestaurantById);      // Details - Get Restaurant By ID API
+route.get('/mealtype', mealtypeController.getMealtype);                     // Homepage - Get Mealtype API
+route.post('/sighnup', userController.postSignUp);                          // Homepage - POST Sign Up API
+route.post('/login', userController.postlogin);                             // Homepage - POST Login API
+route.get('/menu/:resId', menuController.getMenuByRestaurantId);            // Details - Get Menu By Restaurant ID API
+
+// FILTER
+route.get('/restaurant', restaurantController.getRestaurant);               // List of Restaurants API
+route.post('/filter', restaurantController.filteredRestaurant);
 
 module.exports = route;
